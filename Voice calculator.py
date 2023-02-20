@@ -7,13 +7,13 @@ mixer.init()
 
 
 def click(value):
-    ex = entryField.get()  # 789 ex[0:len(ex)-1]
+    ex = entryField.get() 
     answer = ''
 
     try:
 
         if value == 'C':
-            ex = ex[0:len(ex) - 1]  # 78
+            ex = ex[0:len(ex) - 1] 
             entryField.delete(0, END)
             entryField.insert(0, ex)
             return
@@ -51,7 +51,7 @@ def click(value):
         elif value == chr(8731):
             answer = eval(ex) ** (1 / 3)
 
-        elif value == 'x\u02b8':  # 7**2
+        elif value == 'x\u02b8':  
             entryField.insert(END, '**')
             return
 
@@ -79,7 +79,7 @@ def click(value):
         elif value == 'x!':
             answer = math.factorial(ex)
 
-        elif value == chr(247):  # 7/2=3.5
+        elif value == chr(247):  
             entryField.insert(END, "/")
             return
 
@@ -135,7 +135,7 @@ def findNumbers(t):
     return l
 
 def audio():
-    mixer.music.load('music1.mp3')
+    mixer.music.load('C:/Users/RisHaV/Desktop/Python/logo.png/music1.mp3')
     mixer.music.play()
     sr = speech_recognition.Recognizer()
     with speech_recognition.Microphone()as m:
@@ -151,7 +151,7 @@ def audio():
                 if word.upper() in operations.keys():
                     l=findNumbers(text_list)
                     print(l)
-                    result=operations[word.upper()](l[0],l[1]) #mul(5.0,6.0)
+                    result=operations[word.upper()](l[0],l[1]) 
                     entryField.delete(0,END)
                     entryField.insert(END,result)
 
@@ -169,14 +169,14 @@ root.title('Smart Calculator')
 root.config(bg='skyblue')
 root.geometry('680x486+100+100')
 
-logoImage = PhotoImage(file='logo.png')
+logoImage = PhotoImage(file='C:/Users/RisHaV/Desktop/Python/Voice_Cal.png')
 logoLabel = Label(root, image=logoImage, bg='skyblue')
 logoLabel.grid(row=0, column=0)
 
 entryField = Entry(root, font=('arial', 20, 'bold'), bg='skyblue', fg='white', bd=10, relief=SUNKEN, width=30)
 entryField.grid(row=0, column=0, columnspan=8)
 
-micImage = PhotoImage(file='microphone.png')
+micImage = PhotoImage(file='C:/Users/RisHaV/Desktop/Python/Mic.png')
 micButton = Button(root, image=micImage, bd=0, bg='skyblue', activebackground='green'
                    ,command=audio)
 micButton.grid(row=0, column=7)
